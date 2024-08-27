@@ -1,0 +1,7 @@
+1. Intitialize string variable
+2. Get user input for Roman Numeral Calculator
+3. Exception error for bad inputs
+4. Convert string letters to number (ex: V = 5)
+5. Solve algebraic expression in PEMDAS Order
+6. Covert Final Number Back into Roman Numeral
+7. Display output to user

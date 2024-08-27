@@ -1,11 +1,5 @@
-def add(n1, n2):
-    return n1 + n2
+from mathfunction import *
 
-def sub(n1, n2):
-    return n1 - n2
-
-def mul(n1, n2):
-    return n1 * n2
-
-def div(n1, n2):
-    return n1 / n2
+x = 5
+y = 10
+print(add(x,y))
