@@ -12,12 +12,11 @@ numeral = numeral.strip()
 #Strip white space in between words
 numeral = numeral.replace(" ","") 
 
-print(numeral)
+print("The roman numeral is: " + numeral)
 
-print(num2roman(32))
+## Find a way to convert numeral to integer if no operator
+## Find a way to loop through string and carry out operations
 
-
-"""
 #initialize array
 equation = []
 
@@ -34,6 +33,5 @@ while i < len(equation):
 
 
 print(equation)
-"""
 
 
