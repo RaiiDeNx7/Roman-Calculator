@@ -5,3 +5,26 @@
 5. Solve algebraic expression in PEMDAS Order
 6. Covert Final Number Back into Roman Numeral
 7. Display output to user
+
+
+
+Tree primary structure
+number greater than 3,999 should return "You're going to need a bigger calculator"
+if fail to parse, print "I don't know how to read this"
+Should translate to integer from roman numeral if there is no operator
+PEMDAS matters
+Two grouping - Parenthesis and brackets
+
+
+
+
+9+8
+
+    0   - <- 9+8
+9   +   8
+
+9*8/6+/(5-9)
+
+    0   - <- 9*8/6+5-9
+9*8/6   -   (5-9)
+

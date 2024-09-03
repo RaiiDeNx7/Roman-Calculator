@@ -3,7 +3,15 @@ from RomanNumeralValue import *
 
 #Get input from user
 numeral = input("\nEnter your equation: ")
-print(len(numeral))
+
+#Strip white space at beginning and ends of string
+numeral = numeral.strip()  
+
+#Strip white space in between words
+numeral = numeral.replace(" ","") 
+
+
+print(numeral)
 
 #initialize array
 equation = []
@@ -21,5 +29,4 @@ while i < len(equation):
 
 
 print(equation)
-
 

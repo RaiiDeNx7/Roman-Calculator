@@ -14,6 +14,14 @@ def StringValue(letter):
             return "500"
         case "M" | "m":
             return "1000"
+        case "+" :
+            return "+"
+        case "*" :
+            return "*"
+        case "-" :
+            return "-"
+        case "/" :
+            return "/"
         case " ":
             return " "
 
