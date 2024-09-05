@@ -2,6 +2,7 @@ from mathfunction import *
 from RomanNumeralValue import *
 from romantoint import *
 from inttoroman import *
+from NoOperator import *
 import re 
 
 #Get input from user
@@ -13,12 +14,21 @@ numeral = numeral.strip()
 #Strip white space in between words
 numeral = numeral.replace(" ","") 
 
+#print that shows stripped white space
 print("The roman numeral is: " + numeral)
 
-res = re.findall('[+-/*//()]+|\d+',numeral)
+#Check user input for invalid characters
 
-s = "(1-2+3)*5+10/2"
-numbers = "0123456789."
+#Uses findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user
+if findOperator(numeral) == False:
+    print(roman2int(numeral))
+    
+
+s = numeral
+numbers = "IVXLCDM"
+
+
+#splits operators and groups roman numerals
 
 def split_operators(s):
     l = []
@@ -36,19 +46,17 @@ def split_operators(s):
         l.append(last_number)
     return l
 
-print split_operators(s)
+comp = split_operators(s)
 
-"""
-res = re.split(r'(\D)', numeral)
-"""
-print("The result is: " + str(res))
+print("The comp is: " + str(comp))
 
 ## Find a way to convert numeral to integer if no operator
 ## Find a way to loop through string and carry out operations
 
 #initialize array
-equation = []
 """"
+equation = []
+
 #Fill array
 for x in numeral:
     equation.append(x)
