@@ -5,16 +5,15 @@ from inttoroman import *
 from NoOperator import *
 from ValidInputCheck import *
 from stringManipulation import *
-import re 
 
 #Initialize Numeral String
-numeral=""
+numeral = "1"
 
 #Check user input for invalid characters
 while InputCheck(numeral) == False:
 
     #Get input from user
-    numeral = input("\nEnter your equation: ")
+    numeral = input("\n\nEnter your equation: ")
 
     #If incorrect input, print error
     if InputCheck(numeral) == False:
@@ -27,7 +26,7 @@ numeral = numeral.strip()
 numeral = numeral.replace(" ","") 
 
 #print that shows stripped white space
-print("The roman numeral is: " + numeral)
+print("The stripped equation is: " + numeral)
 
 
 #Uses findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user
@@ -37,29 +36,17 @@ if findOperator(numeral) == False:
 
 
 #seperate operators from numerals
-comp = split_operators(numeral)
+split = split_operators(numeral)
 
-print("The comp is: " + str(comp))
+print("The comp is: " + str(split))
 
 ## Find a way to convert numeral to integer if no operator
 ## Find a way to loop through string and carry out operations
 
-#initialize array
-""""
-equation = []
 
-#Fill array
-for x in numeral:
-    equation.append(x)
+#for idx in range(len(split)):
+#    split[idx] = roman2int(split[idx])
 
-print(equation)
+split = [roman2int(i) if i not in ['+', '-', '*', '/'] else i for i in split]
 
-i=0
-while i < len(equation):
-    equation[i] = StringValue(equation[i])
-    i += 1
-
-
-print(equation)
-
-"""
+print(split)
