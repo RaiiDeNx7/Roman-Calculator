@@ -1,5 +1,4 @@
 from mathfunctions import *
-from RomanNumeralValue import *
 from romantoint import *
 from inttoroman import *
 from NoOperator import *
@@ -43,10 +42,19 @@ print("The comp is: " + str(split))
 ## Find a way to convert numeral to integer if no operator
 ## Find a way to loop through string and carry out operations
 
-
-#for idx in range(len(split)):
-#    split[idx] = roman2int(split[idx])
-
+#runs the roman numeral string through function to turn all roman numerals into integers.
 split = [roman2int(i) if i not in ['+', '-', '*', '/'] else i for i in split]
 
 print(split)
+ 
+
+
+
+# Example usage:
+expression = split
+result = calculate_expression(expression)
+print("The calculation result is: " + str(result))
+
+roman = num2roman(result)
+print("The answer is: " + roman)
+
