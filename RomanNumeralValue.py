@@ -28,4 +28,4 @@ def StringValue(letter):
 
         # If an exact match is not confirmed, this last case will be used if provided
         case _:
-            return "Error"
+            return "Error: Incorrect Input"
