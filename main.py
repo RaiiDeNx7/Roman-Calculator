@@ -12,7 +12,7 @@ numeral = "1"
 while InputCheck(numeral) == False:
 
     #Get input from user
-    numeral = input("\n\nEnter your equation: ")
+    numeral = input("\nEnter your equation: ")
 
     #If incorrect input, print error
     if InputCheck(numeral) == False:
@@ -30,7 +30,8 @@ print("The stripped equation is: " + numeral)
 
 #Uses findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user
 if findOperator(numeral) == False:
-        print(roman2int(numeral))
+        numeral = numeral.strip("()[]")  
+        print("The integer of your roman numeral is: " +roman2int(numeral))
         exit(1)
 
 
@@ -43,7 +44,7 @@ print("The comp is: " + str(split))
 ## Find a way to loop through string and carry out operations
 
 #runs the roman numeral string through function to turn all roman numerals into integers.
-split = [roman2int(i) if i not in ['+', '-', '*', '/'] else i for i in split]
+split = [roman2int(i) if i not in ['+', '-', '*', '/',"(",")","[","]"] else i for i in split]
 
 print(split)
  
