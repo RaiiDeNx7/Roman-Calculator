@@ -2,6 +2,7 @@ from mathfunction import *
 from RomanNumeralValue import *
 from romantoint import *
 from inttoroman import *
+import re 
 
 #Get input from user
 numeral = input("\nEnter your equation: ")
@@ -14,12 +15,15 @@ numeral = numeral.replace(" ","")
 
 print("The roman numeral is: " + numeral)
 
+res = re.split(r'(\D)', numeral)
+print("The result is: " + str(res))
+
 ## Find a way to convert numeral to integer if no operator
 ## Find a way to loop through string and carry out operations
 
 #initialize array
 equation = []
-
+""""
 #Fill array
 for x in numeral:
     equation.append(x)
@@ -34,4 +38,4 @@ while i < len(equation):
 
 print(equation)
 
-
+"""
