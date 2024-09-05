@@ -34,13 +34,10 @@ print("The roman numeral is: " + numeral)
 if findOperator(numeral) == False:
         print(roman2int(numeral))
         exit(1)
-    
 
-s = numeral
-numbers = "IVXLCDM"
 
 #seperate operators from numerals
-comp = split_operators(s)
+comp = split_operators(numeral)
 
 print("The comp is: " + str(comp))
 
