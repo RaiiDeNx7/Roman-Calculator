@@ -1,12 +1,24 @@
-from mathfunction import *
+from mathfunctions import *
 from RomanNumeralValue import *
 from romantoint import *
 from inttoroman import *
 from NoOperator import *
+from ValidInputCheck import *
+from stringManipulation import *
 import re 
 
-#Get input from user
-numeral = input("\nEnter your equation: ")
+#Initialize Numeral String
+numeral=""
+
+#Check user input for invalid characters
+while InputCheck(numeral) == False:
+
+    #Get input from user
+    numeral = input("\nEnter your equation: ")
+
+    #If incorrect input, print error
+    if InputCheck(numeral) == False:
+         print("Error: Incorrect input detected. Please try again!")
 
 #Strip white space at beginning and ends of string
 numeral = numeral.strip()  
@@ -17,35 +29,17 @@ numeral = numeral.replace(" ","")
 #print that shows stripped white space
 print("The roman numeral is: " + numeral)
 
-#Check user input for invalid characters
 
 #Uses findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user
 if findOperator(numeral) == False:
-    print(roman2int(numeral))
+        print(roman2int(numeral))
+        exit(1)
     
 
 s = numeral
 numbers = "IVXLCDM"
 
-
-#splits operators and groups roman numerals
-
-def split_operators(s):
-    l = []
-    last_number = ""
-    for c in s:
-        if c in numbers:
-            last_number += c
-        else:
-            if last_number:
-                l.append(last_number)
-                last_number = ""
-            if c:
-                l.append(c)
-    if last_number:
-        l.append(last_number)
-    return l
-
+#seperate operators from numerals
 comp = split_operators(s)
 
 print("The comp is: " + str(comp))
