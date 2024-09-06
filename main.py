@@ -62,12 +62,17 @@ print(joined_string)  # Output: "20 + 10"
 
  
 
-"""
-# Example usage:
-expression = split
-result = calculate_expression(expression)
-print("The calculation result is: " + str(result))
 
+# Example usage
+expr = joined_string
+result = eval_expr(expr)
+result = int(result)
+print("the evaluated integer is: " + str(result))
+
+
+#Call num2roman function to turn evaluated integer back into a roman numeral
 roman = num2roman(result)
+
+#print out answer to user
 print("The answer is: " + roman)
-"""
+
