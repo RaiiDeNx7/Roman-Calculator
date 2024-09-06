@@ -1,5 +1,4 @@
 import operator
-import re
 
 def calculate_expression(expression):
     total = expression[0]
