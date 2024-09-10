@@ -48,24 +48,18 @@ split = [roman2int(i) if i not in ['+', '-', '*', '/',"(",")","[","]"] else i fo
 
 print("List to evalutate: " + str(split))
 
-
-def join_tokens(tokens):
-    """ Join a list of tokens into a single string. """
-    # Convert all tokens to strings and join them with spaces
-    return ' '.join(map(str, tokens))
-
-
 joined_string = join_tokens(split)
 print(joined_string)  # Output: "20 + 10"
-
-
-
- 
-
 
 # Example usage
 expr = joined_string
 result = eval_expr(expr)
+
+#check if number is float or a valid input
+if (IsWhole(result) == False):
+     print("Error: Can't Calculate Decimals")
+     exit()
+
 result = int(result)
 print("the evaluated integer is: " + str(result))
 
@@ -74,5 +68,5 @@ print("the evaluated integer is: " + str(result))
 roman = num2roman(result)
 
 #print out answer to user
-print("The answer is: " + roman)
+print(roman)
 

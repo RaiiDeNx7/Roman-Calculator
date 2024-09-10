@@ -12,8 +12,6 @@ def num2roman(n):
     #Error handling if the number is too big
     if(n>3999):
         return("You need a bigger calculator for this.")
-    
-    #Error handling if number is float
 
     #Roman Numeral Number Cases
     number = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
