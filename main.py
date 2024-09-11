@@ -24,35 +24,40 @@ numeral = numeral.strip()
 #Strip white space in between words
 numeral = numeral.replace(" ","") 
 
-#print that shows stripped white space
+#print test
 print("The stripped equation is: " + numeral)
 
 
 #Uses findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user
 if findOperator(numeral) == False:
+        #If no operator found, the string is stripped of unneeded parenthesis and brackets for easy conversion.
         numeral = numeral.strip("()[]")  
+
+        #print test
         print("The integer of your roman numeral is: " + str(roman2int(numeral)))
-        exit(1)
+
+        #successful termination
+        exit()
 
 
-#seperate operators from numerals
-split = split_operators(numeral)
+#seperation of operators from numerals
+seperatedString = split_operators(numeral)
 
-print("The comp is: " + str(split))
-
-## Find a way to convert numeral to integer if no operator
-## Find a way to loop through string and carry out operations
+#print test
+print("The comp is: " + str(seperatedString))
 
 #runs the roman numeral string through function to turn all roman numerals into integers.
-split = [roman2int(i) if i not in ['+', '-', '*', '/',"(",")","[","]"] else i for i in split]
+integerString = [roman2int(i) if i not in ['+', '-', '*', '/',"(",")","[","]"] else i for i in seperatedString]
 
-print("List to evalutate: " + str(split))
+#print test
+print("List to evalutate: " + str(integerString))
 
-joined_string = join_tokens(split)
-print(joined_string)  # Output: "20 + 10"
+#combining the list back into a string
+combinedString = join_tokens(integerString)
+print(combinedString)  # Output: "20 + 10"
 
 # Example usage
-expr = joined_string
+expr = combinedString
 result = eval_expr(expr)
 
 #check if number is float or a valid input
