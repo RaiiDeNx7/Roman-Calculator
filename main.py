@@ -14,7 +14,7 @@ while not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(n
     #Get input from user. The functions make the string uppercase, then strip the ends of spacing, then strips the middle of spacing.
      numeral = input("\nEnter your equation: ").upper().strip().replace(" ","")
 
-     #If incorrect input, print error
+     #Error input check, print error found
      if not (InputCheck(numeral)):
           print("Error: Invalid Character Detected!")
      if not (checkIfRoman(numeral)):
@@ -32,17 +32,16 @@ findOperator(numeral)
 #seperation of operators from numerals
 seperatedString = split_operators(numeral)
 
-#runs the roman numeral string through function to turn all roman numerals into integers.
+#runs the roman numeral string through function to turn all roman numerals into their respective integers.
 integerString = [roman2int(i) if i not in ['+', '-', '*', '/',"(",")","[","]"] else i for i in seperatedString]
 
 #combining the list back into a string
 combinedString = join_tokens(integerString)
 
-# Example usage
-expr = combinedString
-result = eval_expr(expr)
+#Evaluates the mathematical equation in the string and stores the answer in the result variable.
+result = eval_expr(combinedString)
 
-#check if number is float or a valid input
+#Error check if number is float or decimal number
 if (IsWhole(result) == False):
      print("Error: Can't Calculate Decimals")
      exit()
