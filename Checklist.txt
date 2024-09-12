@@ -11,8 +11,9 @@ Errors to add in:
 Zero [X]
 Float Number [X]
 Too Big Of Number [X]
-No numerals to equate
-Back to Back operators
+No numerals to equate [X]
+Back to Back operators [X]
+If there is one numeral but not 2
 
 
 Tree primary structure

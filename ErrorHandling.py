@@ -1,7 +1,7 @@
 
 #function to check if any invald characters (ones not in set) are present.
 def InputCheck(expression):
-    valid_chars = set("+-/*()[]IiVvXxLlCcDdMm ")
+    valid_chars = set("+-/*()[]IVXLCDM ")
     for char in expression:
         if char not in valid_chars:
             return False

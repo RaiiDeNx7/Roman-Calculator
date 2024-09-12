@@ -1,23 +1,26 @@
 #splits operators and groups roman numerals
 def split_operators(s):
+    #list of roman numerals that we want to seperate from operators"
     numbers = "IVXLCDM"
-    l = []
-    last_number = ""
-    for c in s:
-        if c in numbers:
-            last_number += c
+
+    #empty array
+    newList = []
+    lastNumber = ""
+    for char in s:
+        if char in numbers:
+            lastNumber += char
         else:
-            if last_number:
-                l.append(last_number)
-                last_number = ""
-            if c:
-                l.append(c)
-    if last_number:
-        l.append(last_number)
-    return l
+            if lastNumber:
+                newList.append(lastNumber)
+                lastNumber = ""
+            if char:
+                newList.append(char)
+    if lastNumber:
+        newList.append(lastNumber)
+    return newList
 
 
+#function meant to combine a list into one complete string
 def join_tokens(tokens):
-    """ Join a list of tokens into a single string. """
     # Convert all tokens to strings and join them with spaces
     return ' '.join(map(str, tokens))

@@ -20,6 +20,9 @@ while not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(n
      #Strip white space in between words
      numeral = numeral.replace(" ","") 
 
+     #turn string into upper case for easier computing
+     numeral = numeral.upper() 
+
 
      #If incorrect input, print error
      if not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(numeral)):
@@ -36,7 +39,7 @@ if findOperator(numeral) == False:
         numeral = numeral.strip("()[]")  
 
         #print test
-        print("The integer of your roman numeral is: " + str(roman2int(numeral)))
+        print("The integer conversion of your roman numeral is: " + str(roman2int(numeral)))
 
         #successful termination
         exit()
