@@ -2,33 +2,35 @@ from mathfunctions import *
 from romantoint import *
 from inttoroman import *
 from NoOperator import *
-from ValidInputCheck import *
+from ErrorHandling import *
 from stringManipulation import *
 
 #Initialize Numeral String
 numeral = "1"
 
-#Check user input for invalid characters
-while InputCheck(numeral) == False:
+#Check user input for invalid characters. Keep asking for input until a correct input has been made.
+while not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(numeral)):
 
     #Get input from user
-    numeral = input("\nEnter your equation: ")
+     numeral = input("\nEnter your equation: ")
 
-    #If incorrect input, print error
-    if InputCheck(numeral) == False:
-         print("Error: Incorrect input detected. Please try again!")
+     #Strip white space at beginning and ends of string
+     numeral = numeral.strip()  
 
-#Strip white space at beginning and ends of string
-numeral = numeral.strip()  
+     #Strip white space in between words
+     numeral = numeral.replace(" ","") 
 
-#Strip white space in between words
-numeral = numeral.replace(" ","") 
+
+     #If incorrect input, print error
+     if not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(numeral)):
+          print("Error: Incorrect input detected. Please try again!")
+
 
 #print test
 print("The stripped equation is: " + numeral)
 
 
-#Uses findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user
+#Calls findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user
 if findOperator(numeral) == False:
         #If no operator found, the string is stripped of unneeded parenthesis and brackets for easy conversion.
         numeral = numeral.strip("()[]")  
