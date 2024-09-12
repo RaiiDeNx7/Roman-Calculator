@@ -1,3 +1,4 @@
+from romantoint import *
 
 #function to check if any invald characters (ones not in set) are present.
 def InputCheck(expression):
@@ -51,3 +52,19 @@ def check_operator_by_roman(expression: str) -> bool:
             if i == 0 or expression[i - 1] not in roman_chars:
                 return False
     return True
+
+#Determines if the input contains an operator. If it does not, it will return the integer conversion of their roman numeral. 
+def findOperator(numeral):
+    phrase = numeral
+    operators = {'+', '-', '*', '/'}
+    if any(op in numeral for op in operators):
+        return True
+    else:
+        #If no operator found, the string is stripped of unneeded parenthesis and brackets for easy conversion.
+        numeral = numeral.strip("()[]")  
+
+        #print test
+        print("The integer conversion of your roman numeral is: " + str(roman2int(numeral)))
+
+        #successful termination
+        exit()

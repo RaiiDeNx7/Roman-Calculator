@@ -2,7 +2,6 @@ import pytest
 from mathfunctions import *
 from romantoint import *
 from inttoroman import *
-from NoOperator import *
 from ErrorHandling import *
 from stringManipulation import *
 
@@ -27,15 +26,7 @@ while not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(n
 
 
 #Calls findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user
-if findOperator(numeral) == False:
-        #If no operator found, the string is stripped of unneeded parenthesis and brackets for easy conversion.
-        numeral = numeral.strip("()[]")  
-
-        #print test
-        print("The integer conversion of your roman numeral is: " + str(roman2int(numeral)))
-
-        #successful termination
-        exit()
+findOperator(numeral)
 
 
 #seperation of operators from numerals
