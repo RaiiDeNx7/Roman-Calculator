@@ -10,20 +10,10 @@ from stringManipulation import *
 numeral = "1"
 
 #Check user input for invalid characters. Keep asking for input until a correct input has been made.
-while not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(numeral)):
+while not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(numeral) and check_operator_by_roman(numeral)):
 
-    #Get input from user
-     numeral = input("\nEnter your equation: ")
-
-     #Strip white space at beginning and ends of string
-     numeral = numeral.strip()  
-
-     #Strip white space in between words
-     numeral = numeral.replace(" ","") 
-
-     #turn string into upper case for easier computing
-     numeral = numeral.upper() 
-
+    #Get input from user. The functions make the string uppercase, then strip the ends of spacing, then strips the middle of spacing.
+     numeral = input("\nEnter your equation: ").upper().strip().replace(" ","")
 
      #If incorrect input, print error
      if not (InputCheck(numeral)):
@@ -32,7 +22,8 @@ while not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(n
           print("Error: No Roman Numeral Detected!")
      if not (duplicateOperator(numeral)):
           print("Error: Repitive Operators Found!")
-
+     if not (check_operator_by_roman(numeral)):
+          print("Error: Operator Found With Missing Roman Numeral!")
 
 
 #Calls findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user

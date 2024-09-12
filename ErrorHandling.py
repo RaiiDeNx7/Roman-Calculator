@@ -35,5 +35,19 @@ def duplicateOperator(n):
     return True  # No consecutive operators found
 
 #This function is meant to return an error if there is a roman numeral missing (Examlpe "M* or L/")
-def MissingNumeral(n):
+def check_operator_by_roman(expression: str) -> bool:
+    operators = {'+', '-', '*', '/'}
+    roman_chars = {'I', 'V', 'X', 'L', 'C', 'D', 'M'}
+    
+    # Strip spaces to ensure accurate checking
+    expression = expression.replace(" ", "")
+    
+    for i, char in enumerate(expression):
+        if char in operators:
+            # Check if there is a next character and if it is a Roman numeral
+            if i + 1 >= len(expression) or expression[i + 1] not in roman_chars:
+                return False
+            # Check if there's a previous character and if it's a Roman numeral
+            if i == 0 or expression[i - 1] not in roman_chars:
+                return False
     return True
