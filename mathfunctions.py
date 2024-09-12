@@ -28,8 +28,8 @@ def eval_expr(expr):
             if op_type in operators:
                 return operators[op_type](left, right)
             raise TypeError(f"Unsupported operator: {op_type}")
-        elif isinstance(node, ast.Num):
-            return node.n
+        elif isinstance(node, ast.Constant):
+            return node.value
         else:
             raise TypeError(f"Unsupported AST node: {type(node)}")
 

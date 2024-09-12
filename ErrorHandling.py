@@ -33,3 +33,7 @@ def duplicateOperator(n):
         if n[i] in operators and n[i + 1] in operators:
             return False  # Found two operators beside each other
     return True  # No consecutive operators found
+
+#This function is meant to return an error if there is a roman numeral missing (Examlpe "M* or L/")
+def MissingNumeral(n):
+    return True
