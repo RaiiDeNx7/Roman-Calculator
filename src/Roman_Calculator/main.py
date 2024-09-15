@@ -43,7 +43,7 @@ result = eval_expr(combinedString)
 
 #Error check if number is float or decimal number
 if (IsWhole(result) == False):
-     print("Error: Can't Calculate Decimals")
+     print("There is no concept of a fractional number in Roman numerals.")
      exit()
 
 #Remove float decimal by changing result to an int variable. This number ends in .0 as any decimal number would've returned an error prior.

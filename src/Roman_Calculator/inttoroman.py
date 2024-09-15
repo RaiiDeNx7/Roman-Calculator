@@ -3,15 +3,15 @@ def num2roman(n):
 
     #Error handling if number is negative
     if(n<0):
-        return("No Negative Numbers Allowed")
+        return("Negative numbers can’t be represented in Roman numerals.")
     
     #Error Handling if number is zero
     if(n==0):
-        return("No Zeros Allowed")
+        return("0 does not exist in Roman numerals.")
     
     #Error handling if the number is too big
     if(n>3999):
-        return("You need a bigger calculator for this.")
+        return("You’re going to need a bigger calculator.")
 
     #Roman Numeral Number Cases
     number = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
