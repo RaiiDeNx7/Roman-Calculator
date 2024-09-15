@@ -13,7 +13,7 @@ Float Number [X]
 Too Big Of Number [X]
 No numerals to equate [X]
 Back to Back operators [X]
-If there is one numeral but not 2
+If there is one numeral but not 2 [X]
 
 
 Tree primary structure
