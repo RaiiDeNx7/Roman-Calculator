@@ -29,11 +29,11 @@ and subtraction.
 - [x] 9. Two grouping operators may be used in the program input: ( ) and [ ]. Grouping operators take
 precedence over multiplication and division.
 
-Errors handling factored in:
-- [X] Too Big Of Number [X]
-- [X] No numerals to equate [X]
-- [X] Back to Back operators [X]
-Check if there is roman numeral before and after operator. 
+Error Dections Added:
+- [X] No numerals to equate
+- [X] Back to Back operators
+- [X] Check if there is roman numeral before and after operator. 
+
 
 # How to run using a script
 1) Execute the script in cmd line
