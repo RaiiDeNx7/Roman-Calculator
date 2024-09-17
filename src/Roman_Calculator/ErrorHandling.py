@@ -100,3 +100,25 @@ def findOperator(expression):
 
         #successful termination
         exit()
+
+#Function Determines if the result of roman numeral calculation has an error. The functions takes in the result as an argument. It prints an error and exits if an error occurs.
+def num2romanErrorHandler(result):
+
+    #Error handling if the number is negative
+    if(result<0):
+        print("Negative numbers can’t be represented in Roman numerals.")
+        exit(1)
+    
+    
+    #Error Handling if number is zero
+    if(result==0):
+        print("0 does not exist in Roman numerals.")
+        exit(1)
+    
+    #Error handling if the number is too big
+    if(result>3999):
+        print("You’re going to need a bigger calculator.")
+        exit(1)
+
+
+
