@@ -36,10 +36,10 @@ findOperator(expression)
 seperatedString = split_operators(expression)
 
 #runs the roman numeral string through function to turn all roman numerals into their respective integers.
-integerString = [roman2int(i) if i not in ['+', '-', '*', '/',"(",")","[","]"] else i for i in seperatedString]
+integerList = [roman2int(i) if i not in ['+', '-', '*', '/',"(",")","[","]"] else i for i in seperatedString]
 
-#combining the previous list back into a string using the join_tokens function which acceptes the integerString
-combinedString = join_tokens(integerString)
+#combining the previous list back into a string using the join_tokens function which acceptes the integerList
+combinedString = join_list(integerList)
 
 #Calls the eval_expr function which accepted the combined string. This evaluates the mathematical equation in the string and stores the answer in the result variable.
 result = eval_expr(combinedString)
