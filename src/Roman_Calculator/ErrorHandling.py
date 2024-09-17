@@ -1,4 +1,4 @@
-from romantoint import *
+from src.Roman_Calculator.romantoint import *
 
 #function to check if any invald characters (ones not in set) are present.
 def InputCheck(expression):
@@ -35,13 +35,10 @@ def duplicateOperator(n):
             return False  # Found two operators beside each other
     return True  # No consecutive operators found
 
-#This function is meant to return an error if there is a roman numeral missing (Examlpe "M* or L/")
+#This function is meant to return an error if there is a roman numeral missing (Example "M* or L/")
 def check_operator_by_roman(expression: str) -> bool:
     operators = {'+', '-', '*', '/'}
-    roman_chars = {'I', 'V', 'X', 'L', 'C', 'D', 'M'}
-    
-    # Strip spaces to ensure accurate checking
-    expression = expression.replace(" ", "")
+    roman_chars = {'I', 'V', 'X', 'L', 'C', 'D', 'M','(',")","[","]"}
     
     for i, char in enumerate(expression):
         if char in operators:

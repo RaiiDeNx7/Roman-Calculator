@@ -1,9 +1,9 @@
 import pytest
-from mathfunctions import *
-from romantoint import *
-from inttoroman import *
-from ErrorHandling import *
-from stringManipulation import *
+from src.Roman_Calculator.mathfunctions import *
+from src.Roman_Calculator.romantoint import *
+from src.Roman_Calculator.inttoroman import *
+from src.Roman_Calculator.ErrorHandling import *
+from src.Roman_Calculator.stringManipulation import *
 
 #Initialize Numeral String
 numeral = "1"
@@ -21,6 +21,7 @@ while not (InputCheck(numeral) and checkIfRoman(numeral) and duplicateOperator(n
           print("Error: No Roman Numeral Detected!")
      if not (duplicateOperator(numeral)):
           print("Error: Repitive Operators Found!")
+     
      if not (check_operator_by_roman(numeral)):
           print("Error: Operator Found With Missing Roman Numeral!")
 
