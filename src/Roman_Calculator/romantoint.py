@@ -2,8 +2,16 @@
 # The function accepts the string as an argument. Once processing result and turning it into an integer, it returns result.
 
 def roman2int(s: str) -> int:
-    #List of Roman Numeral Values
-    roman = { "I" : 1, "V" : 5, "X" : 10, "L" : 50, "C" : 100, "D" : 500, "M" : 1000 }
+    #Dict of Roman Numeral Values
+    roman = { 
+        "I" : 1, 
+        "V" : 5, 
+        "X" : 10, 
+        "L" : 50, 
+        "C" : 100, 
+        "D" : 500, 
+        "M" : 1000 
+    }
 
     #variable to hold the sum of roman numerals
     result = 0

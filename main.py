@@ -6,7 +6,7 @@ from src.Roman_Calculator.ErrorHandling import *
 from src.Roman_Calculator.stringManipulation import *
 
 #Initialize Numeral String
-expression = "1"
+expression = "None"
 
 #Check user input for invalid characters. Keep asking for input until a correct input has been given.
 while not (InputCheck(expression) and checkIfRoman(expression) and duplicateOperator(expression) and check_operator_by_roman(expression)):
