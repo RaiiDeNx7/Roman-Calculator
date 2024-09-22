@@ -11,7 +11,8 @@ def InputCheck(expression):
     for char in expression:
         #if a character not in the set appears, return False
         if char not in valid_chars:
-            return False
+            print("Error: Invalid Character Detected!")
+            exit(1)
     #If no invalid character is found, return true
     return True
     
@@ -38,7 +39,8 @@ def checkIfRoman(expression):
         if char in valid_chars:
             return True
     #If no valid character appears, return False
-    return False
+    print("Error: No Roman Numeral Detected!")
+    exit(1)
 
 #This function checks if operators appears twice in a row, or back to back. 
 #The function accepts an expression (the input from user) and returns true if two in a row isn't found. It returns False if two in a row are found.
@@ -51,7 +53,8 @@ def duplicateOperator(expression):
         #If the current character and the next character is an operator
         if expression[i] in operators and expression[i + 1] in operators:
             #Back to back operator were found, so return False
-            return False 
+            print("Error: Repitive Operators Found!")
+            exit(1)
         
     #No consecutive operators found, so return True
     return True  
@@ -65,6 +68,7 @@ def check_operator_by_roman(expression: str) -> bool:
     roman_chars = {'I', 'V', 'X', 'L', 'C', 'D', 'M'}
     #Remove parenthesis and brackets which are not needed in this function.
     newExpression = expression.strip("()[]")  
+    newExpression = expression.replace("(", "").replace(")", "").replace("[", "").replace("]", "")
     
     #Loop through the stripped expression
     for i, char in enumerate(newExpression):
@@ -72,10 +76,12 @@ def check_operator_by_roman(expression: str) -> bool:
         if char in operators:
             # Check if there is a next character and if it is a Roman numeral. Return False if Roman numeral doesn't appear
             if i + 1 >= len(newExpression) or newExpression[i + 1] not in roman_chars:
-                return False
+                print("Error: Operator Found With Missing Roman Numeral!")
+                exit(1)
             # Check if there is a previous character and if it is a Roman numeral. Return False if Roman numeral doesn't appear
             if i == 0 or newExpression[i - 1] not in roman_chars:
-                return False
+                print("Error: Operator Found With Missing Roman Numeral!")
+                exit(1)
             
     #By default, return true if no error was found
     return True

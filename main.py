@@ -1,4 +1,5 @@
 import pytest
+import sys
 from src.Roman_Calculator.mathfunctions import *
 from src.Roman_Calculator.romantoint import *
 from src.Roman_Calculator.inttoroman import *
@@ -6,26 +7,27 @@ from src.Roman_Calculator.ErrorHandling import *
 from src.Roman_Calculator.stringManipulation import *
 
 #Initialize Numeral String
-expression = "None"
+
+expression = sys.argv[1:]
+expression = arguments_str = ' '.join(expression).upper().strip().replace(" ","")
 
 #Check user input for invalid characters. Keep asking for input until a correct input has been given.
-while not (InputCheck(expression) and checkIfRoman(expression) and duplicateOperator(expression) and check_operator_by_roman(expression)):
+#while not (InputCheck(expression) and checkIfRoman(expression) and duplicateOperator(expression) and check_operator_by_roman(expression)):
 
-    #Get input from user. The functions make the string uppercase, then strip the ends of spacing, and then strips the middle of spacing.
-     expression = input("\nEnter your equation: ").upper().strip().replace(" ","")
+#Checks if an invalid character exists, print error found
+InputCheck(expression)
 
-     #Checks if an invalid character exists, print error found
-     if not (InputCheck(expression)):
-          print("Error: Invalid Character Detected!")
-     #Checks if No Roman Numeral exists, print error found
-     if not (checkIfRoman(expression)):
-          print("Error: No Roman Numeral Detected!")
-     #Checks if back to back operators occur, print error found
-     if not (duplicateOperator(expression)):
-          print("Error: Repitive Operators Found!")
-     #Checks if a roman numeral comes before and operator, print error found
-     if not (check_operator_by_roman(expression)):
-          print("Error: Operator Found With Missing Roman Numeral!")
+#Checks if No Roman Numeral exists, print error found
+checkIfRoman(expression)
+
+#Checks if back to back operators occur, print error found
+duplicateOperator(expression)
+
+#Checks if a roman numeral comes before and operator, print error found
+check_operator_by_roman(expression)
+
+#Get input from user. The functions make the string uppercase, then strip the ends of spacing, and then strips the middle of spacing.
+#expression = input("\nPlease Re-Enter your Equation: ").upper().strip().replace(" ","")
 
 
 #Calls findOperator function to determine if the string has an operator. If it does not, it will convert the roman numeral to an integer and display to user

@@ -37,6 +37,6 @@ Error Dections Added:
 
 # How to run using a script
 1) Execute the script in cmd line
-```python main.py X```
+```python main [expression here] ```
 or
-```py -m main.py X```
+```py -m main [expression here]```
