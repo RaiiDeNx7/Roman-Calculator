@@ -20,12 +20,11 @@ def InputCheck(expression):
 #This function checks if a number is a whole number. The function accepts the result variable as an argument and returns a True if the float is a whole number. it returns False if not.
 def IsWhole(result):
     #Checks if number is a whole number (Ex: 2.0, 3, 5.0 would be true)
-    if ((result).is_integer() == True):
-        #If whole number, return true
-        return True
+    if isinstance(result, float):
+        return result.is_integer()
     else:
-        #Not whole number
-        return False
+        # If the result is already an integer, it's a whole number
+        return True
         
 #This function checks if no roman numerals are present in the expression. Every input should contain roman numerals. 
 #The function accepts an expression (the input from user) and returns true if there is a Roman Numeral Present. It returns False otherwise.
@@ -102,7 +101,7 @@ def findOperator(expression):
         expression = expression.strip("()[]")  
 
         #print integer of roman numeral input so the user can see.
-        print("The integer conversion of your roman numeral is: " + str(roman2int(expression)))
+        print(str(roman2int(expression)))
 
         #successful termination
         exit()
