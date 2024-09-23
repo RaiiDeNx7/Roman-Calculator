@@ -111,19 +111,19 @@ def num2romanErrorHandler(result):
 
     #Error handling if the number is negative
     if(result<0):
-        print("Negative numbers can’t be represented in Roman numerals.")
-        exit(1)
+        raise ValueError("Negative numbers can’t be represented in Roman numerals.")
     
     
     #Error Handling if number is zero
     if(result==0):
-        print("0 does not exist in Roman numerals.")
-        exit(1)
+        raise ValueError("0 does not exist in Roman numerals.")
+        
     
     #Error handling if the number is too big
     if(result>3999):
-        print("You’re going to need a bigger calculator.")
-        exit(1)
+        raise ValueError("You’re going to need a bigger calculator.")
+    
+    return True
 
 
 
