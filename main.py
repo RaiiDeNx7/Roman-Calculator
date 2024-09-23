@@ -1,4 +1,3 @@
-import pytest
 import sys
 from src.Roman_Calculator.mathfunctions import *
 from src.Roman_Calculator.romantoint import *
