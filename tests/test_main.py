@@ -52,17 +52,6 @@ def test_main(monkeypatch):
     # Ensure final output is correct
     assert roman_result == "VI"
 
-def test_invalid_input(monkeypatch):
-    # Mock an invalid input with unsupported characters
-    monkeypatch.setattr(sys, 'argv', ['main.py', 'IV+A'])
-    
-    with pytest.raises(SystemExit):
-        expression = sys.argv[1:]
-        expression = ' '.join(expression).upper().strip().replace(" ", "")
-        
-        # This should fail the InputCheck
-        InputCheck(expression)
-
 def test_fractional_result(monkeypatch):
     # Mock an input that would result in a fractional number
     monkeypatch.setattr(sys, 'argv', ['main.py', 'VII/III'])

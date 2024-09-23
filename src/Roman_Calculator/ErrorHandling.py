@@ -11,8 +11,8 @@ def InputCheck(expression):
     for char in expression:
         #if a character not in the set appears, return False
         if char not in valid_chars:
-            print("Error: Invalid Character Detected!")
-            exit(1)
+            raise ValueError("Error: Invalid Character Detected!")
+        
     #If no invalid character is found, return true
     return True
     
@@ -111,7 +111,7 @@ def num2romanErrorHandler(result):
 
     #Error handling if the number is negative
     if(result<0):
-        raise ValueError("Negative numbers can’t be represented in Roman numerals.")
+        raise ValueError("Negative numbers can't be represented in Roman numerals.")
     
     
     #Error Handling if number is zero
@@ -121,7 +121,7 @@ def num2romanErrorHandler(result):
     
     #Error handling if the number is too big
     if(result>3999):
-        raise ValueError("You’re going to need a bigger calculator.")
+        raise ValueError("You're going to need a bigger calculator.")
     
     return True
 

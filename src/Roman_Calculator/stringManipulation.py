@@ -1,6 +1,12 @@
-#This function is meant to splits operators from roman numerals and then group roman numerals together. 
+
 #The function takes in the expression (user input) as an arguement and returns the new formatted list
 
+
+"""
+#Function Description: This function is meant to splits operators from roman numerals and then group roman numerals together. 
+#Parameters: 
+#Return Types: 
+"""
 def split_operators(expression):
     #list of roman numerals that we want to seperate from operators"
     numbers = "IVXLCDM"

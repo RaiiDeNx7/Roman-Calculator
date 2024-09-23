@@ -43,9 +43,27 @@ def test_division_by_zero():
     with pytest.raises(ZeroDivisionError):
         eval_expr("10 / 0")
 
-def test_invalid_expression():
-    # Test invalid or unsupported expressions should raise TypeError
-    with pytest.raises(TypeError):
-        eval_expr("10 + 'a'")  # Invalid operand
-    with pytest.raises(TypeError):
-        eval_expr("10 & 2")  # Unsupported operator
+def test_unsupported_operator():
+    # Test for unsupported operators
+    with pytest.raises(ValueError, match="Unsupported operator: BitOr"):
+        eval_expr("1 | 1")  # Bitwise OR is not supported
+
+    with pytest.raises(ValueError, match="Unsupported operator: BitAnd"):
+        eval_expr("1 & 1")  # Bitwise AND is not supported
+
+def test_invalid_syntax():
+    # Test for invalid syntax
+    with pytest.raises(SyntaxError):
+        eval_expr("1 +")  # Incomplete expression
+
+    with pytest.raises(SyntaxError):
+        eval_expr("2 **")  # Incomplete exponentiation
+
+def test_large_numbers():
+    # Test with large numbers
+    assert eval_expr("1e10 + 1") == 1e10 + 1  # Scientific notation
+
+def test_negative_numbers():
+    # Test with negative numbers
+    assert eval_expr("-5 + 3") == -2
+    assert eval_expr("2 * -3") == -6

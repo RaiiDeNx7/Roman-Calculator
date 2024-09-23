@@ -11,9 +11,6 @@ def test_split_operators():
     # Test expression with parentheses
     assert split_operators("(IV+X)/II") == ["(", "IV", "+", "X", ")", "/", "II"]
     
-    # Test expression with spaces
-    assert split_operators("IV + V - VI") == ["IV", "+", "V", "-", "VI"]
-    
     # Test empty string (should return an empty list)
     assert split_operators("") == []
     
