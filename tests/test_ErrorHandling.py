@@ -33,7 +33,8 @@ def test_is_whole_with_float_whole_number():
     assert IsWhole(5.0) == True
 
 def test_is_whole_with_float_non_whole_number():
-    assert IsWhole(5.5) == False
+    with pytest.raises(ValueError, match="There is no concept of a fractional number in Roman numerals."):
+        IsWhole(5.5)
 
 # Test for checkIfRoman
 def test_check_if_roman_with_roman():

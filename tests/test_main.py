@@ -71,9 +71,4 @@ def test_fractional_result(monkeypatch):
     result = eval_expr(combinedString)
 
     # The result should be fractional
-    assert IsWhole(result) == False
-
-    # Since fractional numbers are invalid in Roman numerals, the code should raise SystemExit
-    with pytest.raises(SystemExit):
-        if not IsWhole(result):
-            raise SystemExit("There is no concept of a fractional number in Roman numerals.")
+    IsWhole(result)

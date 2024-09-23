@@ -20,7 +20,7 @@ def num2roman(result):
     pos = 0
 
     #Loop which converts the integers in result into the string numeral
-    while result > 0:
+    while result > 0 and pos < len(number):
 
         #If result is greater than 0, roman numerals need to be added.
         if result - number[pos] >= 0:

@@ -46,13 +46,7 @@ combinedString = join_list(integerList)
 result = eval_expr(combinedString)
 
 #Error check if number is float or decimal number
-if (IsWhole(result) == False):
-
-     #Print error
-     print("There is no concept of a fractional number in Roman numerals.") 
-
-     #Failed Execution
-     exit(1) 
+IsWhole(result)
 
 #Remove float decimal by changing result to an int variable. This number ends in .0 as any decimal number would've returned an error prior.
 result = int(result)
@@ -61,5 +55,5 @@ result = int(result)
 roman = num2roman(result)
 
 #print out the final answer to user
-print("The calculated roman numeral is: " + roman)
+print(roman)
 

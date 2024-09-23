@@ -19,12 +19,14 @@ def InputCheck(expression):
 
 #This function checks if a number is a whole number. The function accepts the result variable as an argument and returns a True if the float is a whole number. it returns False if not.
 def IsWhole(result):
-    #Checks if number is a whole number (Ex: 2.0, 3, 5.0 would be true)
-    if isinstance(result, float):
-        return result.is_integer()
-    else:
-        # If the result is already an integer, it's a whole number
+    if isinstance(result, int):  # Check if result is an integer
         return True
+    elif isinstance(result, float):  # Check if result is a float
+        if result.is_integer() == True: # Call is_integer() for floats
+            return True
+        else:
+            raise ValueError("There is no concept of a fractional number in Roman numerals.")         
+    return False # Handle other types if necessary
         
 #This function checks if no roman numerals are present in the expression. Every input should contain roman numerals. 
 #The function accepts an expression (the input from user) and returns true if there is a Roman Numeral Present. It returns False otherwise.

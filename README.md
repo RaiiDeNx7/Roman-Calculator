@@ -32,11 +32,21 @@ precedence over multiplication and division.
 Error Dections Added:
 - [X] No numerals to equate
 - [X] Back to Back operators
-- [X] Check if there is roman numeral before and after operator. 
+- [X] Check if there is roman numeral before and after operator.
+- [X] User enters nothing 
+- [X] User enters just space
+- Brackets not working in  eval
 
 
-# How to run using a script
-1) Execute the script in cmd line
+# How to run using py script
+1) Execute the script in cmd line root directory
 ```python main [expression here] ```
 or
 ```py -m main [expression here]```
+
+
+# How to run pytest cov
+
+```python -m pytest --cov .  ```
+or
+```py -m pytest --cov . ``

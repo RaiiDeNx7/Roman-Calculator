@@ -2,7 +2,6 @@ import pytest
 from src.Roman_Calculator.ErrorHandling import *
 from src.Roman_Calculator.inttoroman import *
 
-
 # Mock the error handler to raise an exception for invalid cases
 def test_num2roman(monkeypatch):
     # Mock num2romanErrorHandler to avoid exiting the test
@@ -36,6 +35,7 @@ def test_num2roman(monkeypatch):
     assert num2roman(3998) == "MMMCMXCVIII"
     assert num2roman(3999) == "MMMCMXCIX"
 
+    # Test for edge cases
     with pytest.raises(ValueError, match="Negative numbers can't be represented in Roman numerals."):
         num2roman(-1)
     with pytest.raises(ValueError, match="0 does not exist in Roman numerals."):
@@ -43,7 +43,11 @@ def test_num2roman(monkeypatch):
     with pytest.raises(ValueError, match="You're going to need a bigger calculator."):
         num2roman(4000)
 
-
+    # Test for non-integer inputs (if applicable)
+    with pytest.raises(TypeError):
+        num2roman("string")
+    with pytest.raises(TypeError):
+        num2roman(3.5)
 
 def test_num2roman_error_handling(monkeypatch):
     # Mock num2romanErrorHandler to raise a ValueError instead of exiting
@@ -54,7 +58,7 @@ def test_num2roman_error_handling(monkeypatch):
             raise ValueError("0 does not exist in Roman numerals.")
         elif result > 3999:
             raise ValueError("You’re going to need a bigger calculator.")
-    
+
     monkeypatch.setattr("src.Roman_Calculator.ErrorHandling.num2romanErrorHandler", mock_error_handler)
 
     # Test negative number
@@ -68,3 +72,18 @@ def test_num2roman_error_handling(monkeypatch):
     # Test number greater than 3999
     with pytest.raises(ValueError, match="You're going to need a bigger calculator."):
         num2roman(4000)
+
+    # Test for additional edge cases
+    # Test for large integers (within limits)
+    assert num2roman(3998) == "MMMCMXCVIII"
+    assert num2roman(3000) == "MMM"
+
+    # Test for mixed input types
+    with pytest.raises(TypeError):
+        num2roman("abc")  # String input
+    with pytest.raises(TypeError):
+        num2roman(1.5)  # Float input
+
+    # Test for unsupported types
+    with pytest.raises(TypeError):
+        num2roman(None)
