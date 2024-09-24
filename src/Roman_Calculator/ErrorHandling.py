@@ -80,7 +80,7 @@ def checkIfRoman(expression):
         if char in valid_chars:
             return True
     #If no valid character appears, return False
-    raise ValueError("Error: No Roman Numeral Detected!")
+    raise ValueError("No Roman Numeral Detected!")
     
 
 #This function checks if operators appears twice in a row, or back to back. 

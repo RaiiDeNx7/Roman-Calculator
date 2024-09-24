@@ -46,7 +46,6 @@ or
 
 
 # How to run pytest cov
-
 ```python -m pytest --cov .  ```
 or
 ```py -m pytest --cov . ``

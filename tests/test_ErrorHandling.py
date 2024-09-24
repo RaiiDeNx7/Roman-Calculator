@@ -52,7 +52,7 @@ def test_check_if_roman_present():
     assert checkIfRoman("IV + X") == True
 
 def test_check_if_roman_absent():
-    with pytest.raises(ValueError, match="Error: No Roman Numeral Detected!"):  # Assuming exit(1) is used in your function.
+    with pytest.raises(ValueError, match="No Roman Numeral Detected!"):  # Assuming exit(1) is used in your function.
         checkIfRoman("1 + 5")
 
 # Test for duplicateOperator function

@@ -4,6 +4,7 @@ from src.Roman_Calculator.romantoint import *
 from src.Roman_Calculator.inttoroman import *
 from src.Roman_Calculator.ErrorHandling import *
 from src.Roman_Calculator.stringManipulation import *
+from src.Roman_Calculator.invalidRomanSubtraction import *
 
 """Initialize Numeral String"""
 expression = sys.argv[1:]
@@ -14,6 +15,8 @@ InputCheck(expression)
 
 """Checks if No Roman Numeral exists, print error found"""
 checkIfRoman(expression)
+
+is_invalid_expression(expression)
 
 """Checks if back to back operators occur, print error found"""
 duplicateOperator(expression)
