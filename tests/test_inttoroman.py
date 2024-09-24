@@ -2,88 +2,47 @@ import pytest
 from src.Roman_Calculator.ErrorHandling import *
 from src.Roman_Calculator.inttoroman import *
 
-# Mock the error handler to raise an exception for invalid cases
-def test_num2roman(monkeypatch):
-    # Mock num2romanErrorHandler to avoid exiting the test
-    def mock_error_handler(result):
-        if result < 0:
-            raise ValueError("Negative numbers can't be represented in Roman numerals.")
-        elif result == 0:
-            raise ValueError("0 does not exist in Roman numerals.")
-        elif result > 3999:
-            raise ValueError("You're going to need a bigger calculator.")
+def test_num2roman_valid_cases():
+    # Test for valid conversions
+    assert int2roman(1) == "I"
+    assert int2roman(2) == "II"
+    assert int2roman(3) == "III"
+    assert int2roman(4) == "IV"
+    assert int2roman(5) == "V"
+    assert int2roman(9) == "IX"
+    assert int2roman(10) == "X"
+    assert int2roman(40) == "XL"
+    assert int2roman(50) == "L"
+    assert int2roman(90) == "XC"
+    assert int2roman(100) == "C"
+    assert int2roman(400) == "CD"
+    assert int2roman(500) == "D"
+    assert int2roman(900) == "CM"
+    assert int2roman(1000) == "M"
+    assert int2roman(1987) == "MCMLXXXVII"
+    assert int2roman(2023) == "MMXXIII"
+    assert int2roman(3999) == "MMMCMXCIX"
 
-    monkeypatch.setattr("src.Roman_Calculator.ErrorHandling.num2romanErrorHandler", mock_error_handler)
-
-    # Test for valid numbers
-    assert num2roman(1) == "I"
-    assert num2roman(2) == "II"
-    assert num2roman(3) == "III"
-    assert num2roman(4) == "IV"
-    assert num2roman(5) == "V"
-    assert num2roman(6) == "VI"
-    assert num2roman(9) == "IX"
-    assert num2roman(10) == "X"
-    assert num2roman(40) == "XL"
-    assert num2roman(50) == "L"
-    assert num2roman(90) == "XC"
-    assert num2roman(100) == "C"
-    assert num2roman(500) == "D"
-    assert num2roman(1000) == "M"
-    assert num2roman(1999) == "MCMXCIX"
-    assert num2roman(2023) == "MMXXIII"
-    assert num2roman(3998) == "MMMCMXCVIII"
-    assert num2roman(3999) == "MMMCMXCIX"
-
-    # Test for edge cases
-    with pytest.raises(ValueError, match="Negative numbers can't be represented in Roman numerals."):
-        num2roman(-1)
+def test_num2roman_edge_cases():
+    # Test for edge case of 0 (should raise error)
     with pytest.raises(ValueError, match="0 does not exist in Roman numerals."):
-        num2roman(0)
-    with pytest.raises(ValueError, match="You're going to need a bigger calculator."):
-        num2roman(4000)
+        int2roman(0)
 
-    # Test for non-integer inputs (if applicable)
-    with pytest.raises(TypeError):
-        num2roman("string")
-    with pytest.raises(TypeError):
-        num2roman(3.5)
-
-def test_num2roman_error_handling(monkeypatch):
-    # Mock num2romanErrorHandler to raise a ValueError instead of exiting
-    def mock_error_handler(result):
-        if result < 0:
-            raise ValueError("Negative numbers can't be represented in Roman numerals.")
-        elif result == 0:
-            raise ValueError("0 does not exist in Roman numerals.")
-        elif result > 3999:
-            raise ValueError("You’re going to need a bigger calculator.")
-
-    monkeypatch.setattr("src.Roman_Calculator.ErrorHandling.num2romanErrorHandler", mock_error_handler)
-
-    # Test negative number
+    # Test for edge case of negative number
     with pytest.raises(ValueError, match="Negative numbers can't be represented in Roman numerals."):
-        num2roman(-1)
+        int2roman(-1)
 
-    # Test zero
-    with pytest.raises(ValueError, match="0 does not exist in Roman numerals."):
-        num2roman(0)
-
-    # Test number greater than 3999
+    # Test for edge case of numbers above 3999
     with pytest.raises(ValueError, match="You're going to need a bigger calculator."):
-        num2roman(4000)
+        int2roman(4000)
 
-    # Test for additional edge cases
-    # Test for large integers (within limits)
-    assert num2roman(3998) == "MMMCMXCVIII"
-    assert num2roman(3000) == "MMM"
+def test_num2roman_invalid_input():
+    # Test for non-integer inputs (if the function is supposed to handle this)
+    with pytest.raises(TypeError):
+        int2roman("string")
+    with pytest.raises(TypeError):
+        int2roman(3.5)
 
-    # Test for mixed input types
+    # Test for float inputs (if applicable)
     with pytest.raises(TypeError):
-        num2roman("abc")  # String input
-    with pytest.raises(TypeError):
-        num2roman(1.5)  # Float input
-
-    # Test for unsupported types
-    with pytest.raises(TypeError):
-        num2roman(None)
+        int2roman(3999.99)

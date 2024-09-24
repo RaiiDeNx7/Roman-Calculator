@@ -3,36 +3,28 @@
 
 from src.Roman_Calculator.ErrorHandling import *
 
-def num2roman(result):
-
-    #Calls error handling function to return errors to User if present.
+def int2roman(result):
+    # Handle errors using error handling function
     num2romanErrorHandler(result)
 
-    #Roman Numeral Number Cases
-    number = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
+    # Define Roman numeral mappings from highest to lowest
+    number_symbol_pairs = zip(
+        [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1],
+        ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+    )
 
-    #Roman Numeral Symbols that represent number cases
-    symbol = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I']
-
-    #New numeral string to be returned later
+    # Initialize the result string
     numeral = ""
-    #sets default position
-    pos = 0
 
-    #Loop which converts the integers in result into the string numeral
-    while result > 0 and pos < len(number):
+    # Loop through the number-symbol pairs
+    for number, symbol in number_symbol_pairs:
+        # Determine how many times the number fits into result
+        count = result // number
 
-        #If result is greater than 0, roman numerals need to be added.
-        if result - number[pos] >= 0:
+        # Append the Roman numeral symbol `count` times
+        numeral += symbol * count
 
-            #Add the Roman Numeral at position to the numeral string
-            numeral += symbol[pos]
-            #Remove the integer value of the previous Roman Numeral from the result (total)
-            result -= number[pos]
+        # Decrease the result by the corresponding value
+        result -= number * count
 
-        #change position to next roman numeral and number value
-        else:
-            pos+=1
-
-    #returns the completed roman numeral string
     return numeral

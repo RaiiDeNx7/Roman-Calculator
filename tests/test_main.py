@@ -12,7 +12,7 @@ def test_main(monkeypatch):
 
     # Test the main code flow with a simple valid input
     expression = sys.argv[1:]
-    expression = ' '.join(expression).upper().strip().replace(" ", "")
+    expression = ' '.join(expression).upper().strip().replace(" ", "").replace("[", "(").replace("]", ")")
     
     # Check that InputCheck does not raise any exceptions for valid input
     assert InputCheck(expression) == True
@@ -46,7 +46,7 @@ def test_main(monkeypatch):
     assert IsWhole(result) == True
 
     # Convert result back to Roman numeral
-    roman_result = num2roman(result)
+    roman_result = int2roman(result)
     assert roman_result == "VI"
     
     # Ensure final output is correct
@@ -71,4 +71,5 @@ def test_fractional_result(monkeypatch):
     result = eval_expr(combinedString)
 
     # The result should be fractional
-    IsWhole(result)
+    with pytest.raises(ValueError, match="There is no concept of a fractional number in Roman numerals."):
+        IsWhole(result)

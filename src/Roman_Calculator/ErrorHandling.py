@@ -15,6 +15,46 @@ def InputCheck(expression):
         
     #If no invalid character is found, return true
     return True
+
+#Function to make sure there is no parenthesis that were not closed, or ones that closed without being opened. 
+def check_parentheses_balance(expression):
+    # Initialize a counter for open parentheses
+    open_count = 0
+    
+    for char in expression:
+        if char == '(':
+            open_count += 1  # Increment count when an open parenthesis is found
+        elif char == ')':
+            if open_count == 0:
+                # A closing parenthesis appeared without a matching opening one
+                raise ValueError("Improper use of Parenthesis or Brackets!")
+            open_count -= 1  # Decrement count when a close parenthesis is found
+
+    if open_count > 0:
+        raise ValueError("Improper use of Parenthesis or Brackets!")
+
+    # If open_count is zero, all parentheses are balanced
+    return True
+
+#Function to make sure there is no parenthesis that were not closed, or ones that closed without being opened. 
+def check_brackets_balance(expression):
+    # Initialize a counter for open parentheses
+    open_count = 0
+    
+    for char in expression:
+        if char == '[':
+            open_count += 1  # Increment count when an open parenthesis is found
+        elif char == ']':
+            if open_count == 0:
+                # A closing parenthesis appeared without a matching opening one
+                raise ValueError("Improper use of Parenthesis or Brackets!")
+            open_count -= 1  # Decrement count when a close parenthesis is found
+
+    if open_count > 0:
+        raise ValueError("Improper use of Parenthesis or Brackets!")
+
+    # If open_count is zero, all parentheses are balanced
+    return True
     
 
 #This function checks if a number is a whole number. The function accepts the result variable as an argument and returns a True if the float is a whole number. it returns False if not.
@@ -40,8 +80,8 @@ def checkIfRoman(expression):
         if char in valid_chars:
             return True
     #If no valid character appears, return False
-    print("Error: No Roman Numeral Detected!")
-    exit(1)
+    raise ValueError("Error: No Roman Numeral Detected!")
+    
 
 #This function checks if operators appears twice in a row, or back to back. 
 #The function accepts an expression (the input from user) and returns true if two in a row isn't found. It returns False if two in a row are found.
@@ -54,8 +94,7 @@ def duplicateOperator(expression):
         #If the current character and the next character is an operator
         if expression[i] in operators and expression[i + 1] in operators:
             #Back to back operator were found, so return False
-            print("Error: Repitive Operators Found!")
-            exit(1)
+            raise ValueError("Error: Repitive Operators Found!")
         
     #No consecutive operators found, so return True
     return True  
@@ -77,12 +116,11 @@ def check_operator_by_roman(expression: str) -> bool:
         if char in operators:
             # Check if there is a next character and if it is a Roman numeral. Return False if Roman numeral doesn't appear
             if i + 1 >= len(newExpression) or newExpression[i + 1] not in roman_chars:
-                print("Error: Operator Found With Missing Roman Numeral!")
-                exit(1)
+                raise ValueError("Error: Operator Found With Missing Roman Numeral!")
             # Check if there is a previous character and if it is a Roman numeral. Return False if Roman numeral doesn't appear
             if i == 0 or newExpression[i - 1] not in roman_chars:
-                print("Error: Operator Found With Missing Roman Numeral!")
-                exit(1)
+                raise ValueError("Error: Operator Found With Missing Roman Numeral!")
+                
             
     #By default, return true if no error was found
     return True
@@ -110,6 +148,9 @@ def findOperator(expression):
 
 #Function Determines if the result of roman numeral calculation has an error. The functions takes in the result as an argument. It prints an error and exits if an error occurs.
 def num2romanErrorHandler(result):
+
+    if not isinstance(result, int):
+        raise TypeError("Only integers can be converted to Roman numerals.")
 
     #Error handling if the number is negative
     if(result<0):
