@@ -47,15 +47,15 @@ combinedString = join_list(integerList)
 """Calls the eval_expr function which accepted the combined string. This evaluates the mathematical equation in the string and stores the answer in the result variable."""
 result = eval_expr(combinedString)
 
-#Error check if number is float or decimal number
+"""Error check if number is float or decimal number"""
 IsWhole(result)
 
-#Remove float decimal by changing result to an int variable. This number ends in .0 as any decimal number would've returned an error prior.
+"""Remove float decimal by changing result to an int variable. This number ends in .0 as any decimal number would've returned an error prior."""
 result = int(result)
 
-#Call num2roman function to turn evaluated integer back into a roman numeral. 
+"""Call num2roman function to turn evaluated integer back into a roman numeral. """
 roman = int2roman(result)
 
-#print out the final answer to user
+"""print out the final answer to user"""
 print(roman)
 

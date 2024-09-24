@@ -4,14 +4,14 @@
 
 """
 #Function Description: This function is meant to splits operators from roman numerals and then group roman numerals together. 
-#Parameters: 
+#Parameters: String variable (expression)
 #Return Types: 
 """
 def split_operators(expression):
     #list of roman numerals that we want to seperate from operators"
     numbers = "IVXLCDM"
 
-    #initialize empty array
+    #initialize empty list
     newList = []
     #initialize empty string
     lastNumber = ""
@@ -26,11 +26,11 @@ def split_operators(expression):
         else:
             #if lastNumber is not empty
             if lastNumber:
-                #if lastNumber has a numeral, it appends to newList array
+                #if lastNumber has a numeral, it appends to newList list
                 newList.append(lastNumber)
                 #LastNumber is reset to empty
                 lastNumber = ""
-            #if character is non-empty, it is appended to the newList array
+            #if character is non-empty, it is appended to the newList list
             if char:
                 newList.append(char)
     #Checks if unappended lastNumber (expression ends in number)    
@@ -42,7 +42,7 @@ def split_operators(expression):
 
 
 #The Function meant to combine a list into one complete string
-#The function accepts the integerList array. It joins the array into a string and returns to be stored in combinedString
+#The function accepts the integerList list. It joins the list into a string and returns to be stored in combinedString
 
 def join_list(integerList):
     # Convert all integerList to strings and joins them with spaces
