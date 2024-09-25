@@ -11,7 +11,7 @@ Parameters:
     expression (string)
 
 Returns:
-    False (boolean) if no errors found
+    bool (true if no errors found)
     
 Exceptions:
     ValueError: Invalid Numeral Repetition
@@ -43,4 +43,4 @@ def is_invalid_expression(expression):
     
     
     # If no invalid pattern or repetition is found, it's valid
-    return False
+    return True

@@ -17,11 +17,11 @@ def test_check_parentheses_balance_valid():
     assert check_parentheses_balance("(IV+X)*L") == True
 
 def test_check_parentheses_balance_unbalanced_open():
-    with pytest.raises(ValueError, match="Improper use of Parenthesis or Brackets!"):
+    with pytest.raises(ValueError, match="Improper use of Parenthesis!"):
         check_parentheses_balance("(IV+X")
 
 def test_check_parentheses_balance_unbalanced_close():
-    with pytest.raises(ValueError, match="Improper use of Parenthesis or Brackets!"):
+    with pytest.raises(ValueError, match="Improper use of Parenthesis!"):
         check_parentheses_balance("IV+X)")
 
 # Test for check_brackets_balance function
@@ -29,11 +29,11 @@ def test_check_brackets_balance_valid():
     assert check_brackets_balance("[IV+X]*L") == True
 
 def test_check_brackets_balance_unbalanced_open():
-    with pytest.raises(ValueError, match="Improper use of Parenthesis or Brackets!"):
+    with pytest.raises(ValueError, match="Improper use of Brackets!"):
         check_brackets_balance("[IV+X")
 
 def test_check_brackets_balance_unbalanced_close():
-    with pytest.raises(ValueError, match="Improper use of Parenthesis or Brackets!"):
+    with pytest.raises(ValueError, match="Improper use of Brackets!"):
         check_brackets_balance("IV+X]")
 
 # Test for IsWhole function

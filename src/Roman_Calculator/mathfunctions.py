@@ -23,7 +23,7 @@ Parameters:
     expression (string)
 
 Returns:
-    The result of the evaluated expression.
+    _eval(tree.body) which is an integer or float value
     
 Exceptions:
     ValueError: If the expression contains unsupported operations.
