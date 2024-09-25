@@ -1,5 +1,23 @@
 import re
 
+"""
+Function Name: 
+    is_invalid_expression()
+
+Function Description: 
+    Checks expression for invalid subtraction patterns (like IC) and too many consecutive roman numerals (like IIII)
+        
+Parameters:
+    expression (string)
+
+Returns:
+    False (boolean) if no errors found
+    
+Exceptions:
+    ValueError: Invalid Numeral Repetition
+    ValueError: Invalid Numeral Pattern Found
+"""
+
 def is_invalid_expression(expression):
     # Allowed subtractive patterns
     valid_subtractive_patterns = ["IV", "IX", "XL", "XC", "CD", "CM"]
@@ -25,4 +43,4 @@ def is_invalid_expression(expression):
     
     
     # If no invalid pattern or repetition is found, it's valid
-    return True
+    return False

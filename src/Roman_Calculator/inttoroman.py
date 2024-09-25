@@ -3,9 +3,27 @@
 
 from src.Roman_Calculator.ErrorHandling import *
 
+"""
+Function Name: 
+    int2roman()
+
+Function Description: 
+    The int2roman function is meant for converting integer numbers received back to Roman Numerals.
+        
+Parameters:
+    result (integer)
+
+Returns:
+    numeral (string)
+    
+Exceptions:
+    None
+"""
+
 def int2roman(result):
+
     # Handle errors using error handling function
-    num2romanErrorHandler(result)
+    int2romanErrorHandler(result)
 
     # Define Roman numeral mappings from highest to lowest
     number_symbol_pairs = zip(
@@ -27,4 +45,5 @@ def int2roman(result):
         # Decrease the result by the corresponding value
         result -= number * count
 
+    #Return roman numeral string
     return numeral

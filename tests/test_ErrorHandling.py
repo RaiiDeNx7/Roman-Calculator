@@ -9,7 +9,7 @@ def test_input_check_valid():
     assert InputCheck("(IV+X)*L") == True
 
 def test_input_check_invalid_character():
-    with pytest.raises(ValueError, match="Error: Invalid Character Detected!"):
+    with pytest.raises(ValueError, match="Invalid Character Detected!"):
         InputCheck("(IV+X)*L@")
 
 # Test for check_parentheses_balance function
@@ -60,7 +60,7 @@ def test_duplicate_operator_no_consecutive():
     assert duplicateOperator("IV + X") == True
 
 def test_duplicate_operator_consecutive():
-    with pytest.raises(ValueError, match="Error: Repitive Operators Found!"):  
+    with pytest.raises(ValueError, match="Repitive Operators Found!"):  
         duplicateOperator("IV ++ X")
 
 # Test for check_operator_by_roman function
@@ -68,11 +68,11 @@ def test_check_operator_by_roman_valid():
     assert check_operator_by_roman("IV+X") == True
 
 def test_check_operator_by_roman_missing_numeral_before():
-    with pytest.raises(ValueError, match="Error: Operator Found With Missing Roman Numeral!"):  
+    with pytest.raises(ValueError, match="Operator Found With Missing Roman Numeral!"):  
         check_operator_by_roman("+ X")
 
 def test_check_operator_by_roman_missing_numeral_after():
-    with pytest.raises(ValueError, match="Error: Operator Found With Missing Roman Numeral!"):
+    with pytest.raises(ValueError, match="Operator Found With Missing Roman Numeral!"):
         check_operator_by_roman("IV + ")
 
 # Test for findOperator function
@@ -86,16 +86,16 @@ def test_find_operator_absent():
 # Test for num2romanErrorHandler function
 def test_num2roman_negative_number():
     with pytest.raises(ValueError, match="Negative numbers can't be represented in Roman numerals."):
-        num2romanErrorHandler(-5)
+        int2romanErrorHandler(-5)
 
 def test_num2roman_zero():
     with pytest.raises(ValueError, match="0 does not exist in Roman numerals."):
-        num2romanErrorHandler(0)
+        int2romanErrorHandler(0)
 
 def test_num2roman_large_number():
     with pytest.raises(ValueError, match="You're going to need a bigger calculator."):
-        num2romanErrorHandler(4000)
+        int2romanErrorHandler(4000)
 
 def test_num2roman_valid_number():
-    assert num2romanErrorHandler(3999) == True
+    assert int2romanErrorHandler(3999) == True
 
