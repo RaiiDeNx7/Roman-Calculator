@@ -33,12 +33,12 @@ def is_invalid_expression(expression):
 
     # Ensure that no numeral has more than three consecutive repetitions (except M)
     if re.search(r"(IIII|VV|XXXX|LL|CCCC|DD)", expression):
-        raise ValueError("Invalid Numeral Repetition")  # Invalid repetition found
+        raise ValueError("I don't know how to read this.")  # Invalid repetition found
     
     # Check for invalid patterns
     for pattern in invalid_subtractive_patterns:
         if pattern in expression:
-            raise ValueError("Invalid Numeral Pattern Found")  # Invalid numeral found
+            raise ValueError("I don't know how to read this.")  # Invalid numeral found
     
     
     

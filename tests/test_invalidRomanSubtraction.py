@@ -12,32 +12,32 @@ def test_valid_numerals():
 
 def test_invalid_repetitions():
     # Numerals with invalid repetitions
-    with pytest.raises(ValueError, match="Invalid Numeral Repetition"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("IIII")  # More than 3 I's
-    with pytest.raises(ValueError, match="Invalid Numeral Repetition"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("VV")  # V can't repeat
-    with pytest.raises(ValueError, match="Invalid Numeral Repetition"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("XXXX")  # More than 3 X's
-    with pytest.raises(ValueError, match="Invalid Numeral Repetition"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("LL")  # L can't repeat
-    with pytest.raises(ValueError, match="Invalid Numeral Repetition"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("CCCC")  # More than 3 C's
-    with pytest.raises(ValueError, match="Invalid Numeral Repetition"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("DD")  # D can't repeat
 
 def test_invalid_subtractive_patterns():
     # Numerals with invalid subtractive patterns
-    with pytest.raises(ValueError, match="Invalid Numeral Pattern Found"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("IC")  # Invalid pattern
-    with pytest.raises(ValueError, match="Invalid Numeral Pattern Found"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("IL")  # Invalid pattern
-    with pytest.raises(ValueError, match="Invalid Numeral Pattern Found"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("VC")  # Invalid pattern
-    with pytest.raises(ValueError, match="Invalid Numeral Pattern Found"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("XD")  # Invalid pattern
-    with pytest.raises(ValueError, match="Invalid Numeral Pattern Found"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("DM")  # Invalid pattern
-    with pytest.raises(ValueError, match="Invalid Numeral Pattern Found"):
+    with pytest.raises(ValueError, match="I don't know how to read this."):
         is_invalid_expression("IM")  # Invalid pattern
 
 def test_edge_cases():
