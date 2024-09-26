@@ -14,7 +14,6 @@ def int2roman(result):
 
     Returns:
         numeral (string)
-        
     """
 
     # Handle errors using error handling function
