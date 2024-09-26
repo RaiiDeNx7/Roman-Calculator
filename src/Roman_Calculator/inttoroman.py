@@ -3,24 +3,19 @@
 
 from src.Roman_Calculator.ErrorHandling import *
 
-"""
-Function Name: 
-    int2roman()
-
-Function Description: 
-    The int2roman function is meant for converting integer numbers received back to Roman Numerals.
-        
-Parameters:
-    result (integer)
-
-Returns:
-    numeral (string)
-    
-Exceptions:
-    None
-"""
-
 def int2roman(result):
+
+    """
+    Function Description: 
+        The int2roman function is meant for converting integer numbers received back to Roman Numerals.
+            
+    Parameters:
+        result (integer)
+
+    Returns:
+        numeral (string)
+        
+    """
 
     # Handle errors using error handling function
     int2romanErrorHandler(result)

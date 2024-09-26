@@ -45,7 +45,7 @@ or
 ```py -m main [expression here]```
 
 
-# How to run pytest cov
+# How to run pytest cov (Root Directory)
 ```python -m pytest --cov .  ```
 or
 ```py -m pytest --cov . ``

@@ -1,21 +1,16 @@
 
-"""
-    Function Name: 
-        split_operators()
+def split_operators(expression):
 
+    """
     Function Description: 
         This function is meant to splits operators from roman numerals and then group roman numerals together. 
-
     Parameters: 
         expression (string)
-
     Return Types: 
         newList (list)
-
     Exceptions: 
         None
-""" 
-def split_operators(expression):
+    """ 
     
     # list of roman numerals that we want to seperate from operators 
     numbers = "IVXLCDM"
@@ -63,24 +58,21 @@ def split_operators(expression):
 
 
 
-
-"""
-Function Name: 
-    join_list()
-
-Function Description: 
-    The Function meant to combine a list into one complete string
-
-Parameters: 
-    The function accepts the list variable (integerList). It joins the input list into a string.
-
-Return Types: 
-    String 
-
-Exceptions: 
-    None
-"""
 def join_list(integerList):
+
+    """
+    Function Description: 
+        The Function meant to combine a list into one complete string
+
+    Parameters: 
+        The function accepts the list variable (integerList). It joins the input list into a string.
+
+    Return Types: 
+        String 
+
+    Exceptions: 
+        None
+    """
 
     # Convert all integerList to strings and joins them with spaces
     return ' '.join(map(str, integerList))

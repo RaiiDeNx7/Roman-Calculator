@@ -1,20 +1,16 @@
-"""
-Function Name: 
-    roman2int()
 
-Function Description: 
-    Function meant to convert roman numerals into integers. The calulation is stored in result and returned to main.
-
-Parameters: 
-    expression (string).
-
-Return Types: 
-    result (integer)
-
-Exceptions: 
-    None
-"""
 def roman2int(expression: str) -> int:
+
+    """
+    Function Description: 
+        Function meant to convert roman numerals into integers. The calculation is stored in result and returned to main. 
+        
+    Parameters: 
+        expression (string).
+
+    Return Types: 
+        result (integer)
+    """
 
     # Dictionary of Roman Numeral Values
     roman = { 

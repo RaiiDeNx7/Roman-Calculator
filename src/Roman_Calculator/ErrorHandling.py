@@ -1,24 +1,23 @@
 #This python file contains functinos meant to help with detecting and handling Errors.
 from src.Roman_Calculator.romantoint import *
 
-"""
-Function Name: 
-    InputCheck()
 
-Function Description: 
-    This function checks if any invald characters (ones not in set) are present. The function accepts an expression (the input from user) 
-    and returns True if only valid characters are present. It returns False if invalid character appears.
-        
-Parameters:
-    expression (string)
-
-Returns:
-    Boolean (True if valid, raise error if invalid)
-    
-Exceptions:
-    ValueError: Invalid Characters Detected
-"""
 def InputCheck(expression):
+
+    """
+    Function Description: 
+        This function checks if any invald characters (ones not in set) are present. The function accepts an expression (the input from user) 
+        and returns True if only valid characters are present. It returns False if invalid character appears.
+        
+    Parameters:
+        expression (string)
+
+    Returns:
+        Boolean (True if valid, raise error if invalid)
+    
+    Exceptions:
+        ValueError: Invalid Characters Detected
+    """
 
     #set of characters which are allowed
     valid_chars = set("+-/*()[]IVXLCDM ")
@@ -34,24 +33,23 @@ def InputCheck(expression):
     return True
 
 
-"""
-Function Name: 
-    check_parenthesis_balance()
-
-Function Description: 
-    Function to make sure there is no parenthesis that were not closed, or ones that closed without being opened. 
-        
-Parameters:
-    expression (string)
-
-Returns:
-    bool (True if proper parenthesis, raise error if not)
-    
-Exceptions:
-    ValueError: Improper use of Parenthesis!
-"""
 
 def check_parentheses_balance(expression):
+
+    """
+    Function Description: 
+        Function to make sure there is no parenthesis that were not closed, or ones that closed without being opened. 
+        
+    Parameters:
+        expression (string)
+
+    Returns:
+        bool (True if proper parenthesis, raise error if not)
+    
+    Exceptions:
+        ValueError: Improper use of Parenthesis!
+    """
+
     # Initialize a counter for open parentheses
     open_count = 0
     
@@ -76,24 +74,22 @@ def check_parentheses_balance(expression):
     # If open_count is zero, all parentheses are balanced
     return True
 
-"""
-Function Name: 
-    check_brackets_balance()
-
-Function Description: 
-    Function to make sure there is no brackets that were not closed, or ones that closed without being opened. 
-        
-Parameters:
-    expression (string)
-
-Returns:
-    bool (True if proper brackets, raise error if not)
-    
-Exceptions:
-    ValueError: Improper use of Brackets!
-"""
 
 def check_brackets_balance(expression):
+
+    """
+    Function Description: 
+        Function to make sure there is no brackets that were not closed, or ones that closed without being opened. 
+        
+    Parameters:
+        expression (string)
+
+    Returns:
+        bool (True if proper brackets, raise error if not)
+    
+    Exceptions:
+        ValueError: Improper use of Brackets!
+    """
 
     # Initialize a counter for open parentheses
     open_count = 0
@@ -118,27 +114,24 @@ def check_brackets_balance(expression):
 
     # If open_count is zero, all parentheses are balanced
     return True
-    
-"""
-Function Name: 
-    IsWhole()
-
-Function Description: 
-    This function checks if a number is a whole number. 
-    The function accepts the result variable as an argument and 
-    returns a True if the float is a whole number. it returns False if not.
-        
-Parameters:
-    result (float or integer)
-
-Returns:
-    bool (True if whole, False or raise error if not)
-    
-Exceptions:
-    ValueError: There is no concept of a fractional number in Roman numerals.
-"""
 
 def IsWhole(result):
+
+    """
+    Function Description: 
+        This function checks if a number is a whole number. 
+        The function accepts the result variable as an argument and 
+        returns a True if the float is a whole number. it returns False if not.
+        
+    Parameters:
+        result (float or integer)
+
+    Returns:
+        bool (True if whole, False or raise error if not)
+    
+    Exceptions:
+        ValueError: There is no concept of a fractional number in Roman numerals.
+    """
 
     # Check if result is an integer
     if isinstance(result, int):  
@@ -155,26 +148,22 @@ def IsWhole(result):
 
     # Handle other types if necessary   
     return False 
-        
-
-"""
-Function Name: 
-    checkIfRoman()
-
-Function Description: 
-    This function checks if no roman numerals are present in the expression. Every input should contain roman numerals. 
-        
-Parameters:
-    expression (string)
-
-Returns:
-    bool (True if roman numeral present, raise error if not)
-    
-Exceptions:
-    ValueError: No Roman Numeral Detected!
-"""
 
 def checkIfRoman(expression):
+
+    """
+    Function Description: 
+        This function checks if no roman numerals are present in the expression. Every input should contain roman numerals. 
+            
+    Parameters:
+        expression (string)
+
+    Returns:
+        bool (True if roman numeral present, raise error if not)
+        
+    Exceptions:
+        ValueError: No Roman Numeral Detected!
+    """
 
     #set of valid characters (roman numerals)
     valid_chars = set("IVXLCDM")
@@ -186,27 +175,24 @@ def checkIfRoman(expression):
             return True
     #If no valid character appears, return False
     raise ValueError("No Roman Numeral Detected!")
-    
 
-"""
-Function Name: 
-    duplicateOperator()
-
-Function Description: 
-    This function checks if operators appears consecutively. 
-        
-Parameters:
-    expression (string)
-
-Returns:
-    bool (True if no duplicate found, raise error if not)
-    
-Exceptions:
-    ValueError: Repitive Operators Found!
-"""
 
 #The function accepts an expression (the input from user) and returns true if two in a row isn't found.
 def duplicateOperator(expression):
+
+    """
+    Function Description: 
+        This function checks if operators appears consecutively. 
+            
+    Parameters:
+        expression (string)
+
+    Returns:
+        bool (True if no duplicate found, raise error if not)
+        
+    Exceptions:
+        ValueError: Repitive Operators Found!
+    """
 
     # Define the set of operators to check
     operators = set("+-*/")
@@ -223,24 +209,22 @@ def duplicateOperator(expression):
     #No consecutive operators found, so return True
     return True  
 
-"""
-Function Name: 
-    check_operator_by_roman()
-
-Function Description: 
-    This function is meant to return an error if there is a roman numeral missing (Example "M*"" or "L/"" or "/D")
-        
-Parameters:
-    expression (string)
-
-Returns:
-    bool (True if no duplicate found, raise error if not)
-    
-Exceptions:
-    ValueError: Operator Found With Missing Roman Numeral!
-"""
 
 def check_operator_by_roman(expression: str) -> bool:
+
+    """
+    Function Description: 
+        This function is meant to return an error if there is a roman numeral missing (Example "M*"" or "L/"" or "/D")
+            
+    Parameters:
+        expression (string)
+
+    Returns:
+        bool (True if no duplicate found, raise error if not)
+        
+    Exceptions:
+        ValueError: Operator Found With Missing Roman Numeral!
+    """
 
     #list of valid operators
     operators = {'+', '-', '*', '/'}
@@ -269,24 +253,18 @@ def check_operator_by_roman(expression: str) -> bool:
     #By default, return true if no error was found
     return True
 
-"""
-Function Name: 
-    findOperator()
-
-Function Description: 
-    #Determines if the input contains an operator. If it does not, it will print the integer conversion of their roman numeral. 
-        
-Parameters:
-    expression (string)
-
-Returns:
-    bool (True if operator found, print and exit if not)
-    
-Exceptions:
-    None
-"""
-
 def findOperator(expression):
+
+    """
+    Function Description: 
+        #Determines if the input contains an operator. If it does not, it will print the integer conversion of their roman numeral. 
+            
+    Parameters:
+        expression (string)
+
+    Returns:
+        bool (True if operator found, print and exit if not)
+    """
 
     #Valid list of operators
     operators = {'+', '-', '*', '/'}
@@ -307,26 +285,23 @@ def findOperator(expression):
         #successful termination
         exit()
 
-"""
-Function Name: 
-    int2romanErrorHandler()
-
-Function Description: 
-    Function Determines if the result of roman numeral calculation has an error. 
-        
-Parameters:
-    result (integer or float)
-
-Returns:
-    bool (True if no errors, raise error if there is)
-    
-Exceptions:
-    TypeError: Only integers can be converted to Roman numerals.
-    ValueError: Negative numbers can't be represented in Roman numerals.
-    ValueError: 0 does not exist in Roman numerals.
-"""
-
 def int2romanErrorHandler(result):
+
+    """
+    Function Description: 
+        Function Determines if the result of roman numeral calculation has an error. 
+            
+    Parameters:
+        result (integer or float)
+
+    Returns:
+        bool (True if no errors, raise error if there is)
+        
+    Exceptions:
+        TypeError: Only integers can be converted to Roman numerals.
+        ValueError: Negative numbers can't be represented in Roman numerals.
+        ValueError: 0 does not exist in Roman numerals.
+    """
 
     if not isinstance(result, int):
         raise TypeError("Only integers can be converted to Roman numerals.")

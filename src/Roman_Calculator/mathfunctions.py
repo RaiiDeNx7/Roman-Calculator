@@ -11,26 +11,22 @@ operators = {
     ast.Mod: op.mod,  
 }
 
-
-"""
-Function Name: 
-    eval_expr()
-
-Function Description: 
-    Evaluates mathematical expressions by using AST (Abstract Syntax Tree). It recursively evaluates the tree
-        
-Parameters:
-    expression (string)
-
-Returns:
-    _eval(tree.body) which is an integer or float value
-    
-Exceptions:
-    ValueError: If the expression contains unsupported operations.
-    TypeError: If the expression contains invalid syntax.
-"""
-
 def eval_expr(expression):
+
+    """
+    Function Description: 
+        Evaluates mathematical expressions by using AST (Abstract Syntax Tree). It recursively evaluates the tree
+            
+    Parameters:
+        expression (string)
+
+    Returns:
+        _eval(tree.body) which is an integer or float value
+        
+    Exceptions:
+        ValueError: If the expression contains unsupported operations.
+        TypeError: If the expression contains invalid syntax.
+    """
     
     # Parse the expression into an Abstract Syntax Tree (AST)
     tree = ast.parse(expression, mode='eval')
